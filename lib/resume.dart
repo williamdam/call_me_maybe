@@ -4,51 +4,22 @@ class Resume extends StatelessWidget {
 
   final jobs = [
     
-    Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text('William Dam', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 24.0)),
-            ],
-          ),
-          Row(
-            children: [
-              Text('damw@oregonstate.edu'),
-            ],
-          ),
-          Row(
-            children: [
-              Text('https://github.com/williamdam'),
-            ],
-          ),
-      ]),
+    aboutMe(
+      name: 'William Dam',
+      email: 'damw@oregonstate.edu',
+      githubURL: 'https://github.com/williamdam'
     ),
 
-    Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: Column(children: [
-        Row(
-          children: [
-            Text('Junior Software Engineer', style: TextStyle(fontWeight: FontWeight.bold)),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(alignment: Alignment.centerLeft, child: Text('ABC Company')),
-            Container(alignment: Alignment.center, child: Text('2016 - Present')),
-            Container(alignment: Alignment.centerRight, child: Text('Springfield, OR'))
-          ]
-        ),
-        Wrap(
-          children: [
-            Text('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'),
-          ],
-        )
-      ]),
-    ),
+    job(
+      jobTitle: 'Junior Software Engineer',
+      companyName: 'ABC Company',
+      dates: '2021 - Present',
+      city: 'Portland, OR',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
+    )
+    
     
   ];
 
@@ -65,4 +36,55 @@ class Resume extends StatelessWidget {
       ),
     );
   }
+
+}
+
+Widget job({String jobTitle, String companyName, String dates, String city, String description}) {
+  return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: Column(children: [
+        Row(
+          children: [
+            Text(companyName, style: TextStyle(fontWeight: FontWeight.bold)),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(alignment: Alignment.centerLeft, child: Text(companyName)),
+            Container(alignment: Alignment.center, child: Text(dates)),
+            Container(alignment: Alignment.centerRight, child: Text(city))
+          ]
+        ),
+        Wrap(
+          children: [
+            Text(description),
+          ],
+        )
+      ]),
+    );
+}
+
+Widget aboutMe({String name, String email, String githubURL}) {
+  return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(name, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 24.0)),
+            ],
+          ),
+          Row(
+            children: [
+              Text(email),
+            ],
+          ),
+          Row(
+            children: [
+              Text(githubURL),
+            ],
+          ),
+      ]),
+    );
 }
