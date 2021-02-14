@@ -72,14 +72,16 @@ Widget phoneNumber({int number}) {
 }
 
 Widget webInfo({String github, String email}) {
+
+  String githubURL = 'https://' + github;
+  String emailURL = 'mailto:' + email;
+
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-
-      Text('github.com/williamdam'),
+      GestureDetector(onTap: () => launch(githubURL), child: Text(github)),
       SizedBox(width: 30.0),
-      Text('damw@oregonstate.edu'),
-      
+      GestureDetector(onTap: () => launch(emailURL), child: Text(email)),
     ],
   );
 }
