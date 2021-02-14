@@ -4,74 +4,82 @@ import 'package:url_launcher/url_launcher.dart';
 class BusinessCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 30.0),
-        child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    child: Image(image: AssetImage('assets/images/william-dam.jpg')),
-                    width: 100,
-                    height: 100
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Text('William Dam', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0)),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Text('Software Developer', style: TextStyle(fontSize: 16.0)),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                    child: GestureDetector(onTap: () => launch('sms:5555555555'), child: Text('555 555 5555')),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-
-                    Text('github.com/williamdam'),
-
-                    Text('wdam@google.com'),
-                  
-                ],
-              ),
-            )
-          ]
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: businessCardProfile()
+          ),
         ),
       ),
     );
   }
+}
+
+List<Widget> businessCardProfile() {
+  return [
+    SizedBox(height: 30.0),
+    profilePic(imageURL: 'assets/images/william-dam.jpg'),
+    SizedBox(height: 18.0),
+    profileInfo(info: 'William Dam', isName: true),
+    SizedBox(height: 18.0),
+    profileInfo(info: 'Software Developer', isName: false),
+    SizedBox(height: 18.0),
+    phoneNumber(number: 5555555555),
+    SizedBox(height: 18.0),
+    webInfo(github: 'github.com/williamdam', email: 'damw@oregonstate.edu')
+  ];
+}
+
+Widget profilePic({String imageURL}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      SizedBox(
+        child: Image(image: AssetImage('assets/images/william-dam.jpg')),
+        width: 100,
+        height: 100
+      )
+    ],
+  );
+}
+
+Widget profileInfo({String info, bool isName}) {
+  
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Text(info, style: TextStyle(fontWeight: isName ? FontWeight.w500 : FontWeight.normal, fontSize: isName ? 20.0 : 18.0))
+    ],
+  );
+}
+
+Widget phoneNumber({int number}) {
+
+  String smsLaunchURL = 'sms:' + number.toString();
+  String formattedNumber;
+  formattedNumber = number.toString().substring(0, 3);
+  formattedNumber += ' ' + number.toString().substring(3, 6);
+  formattedNumber += ' ' + number.toString().substring(6, 10);
+
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      GestureDetector(onTap: () => launch(smsLaunchURL), child: Text(formattedNumber))
+    ],
+  );
+}
+
+Widget webInfo({String github, String email}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+
+      Text('github.com/williamdam'),
+      SizedBox(width: 30.0),
+      Text('damw@oregonstate.edu'),
+      
+    ],
+  );
 }
