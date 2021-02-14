@@ -1,20 +1,72 @@
 import 'package:flutter/material.dart';
 
 class Resume extends StatelessWidget {
-
   final jobs = [
-    
+    SizedBox(height: 20.0),
     aboutMe(
       name: 'William Dam',
       email: 'damw@oregonstate.edu',
       githubURL: 'https://github.com/williamdam'
     ),
-
+    job(
+      jobTitle: 'Software Engineer II',
+      companyName: 'SpaceX',
+      dates: '2021 - Present',
+      city: 'Glendale, CA',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
+    ),
+    job(
+      jobTitle: 'Senior Software Engineer',
+      companyName: 'Lockheed Martin',
+      dates: '2020 - 2021',
+      city: 'Portland, OR',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
+    ),
+    job(
+      jobTitle: 'Embedded Software Engineer',
+      companyName: 'Boeing',
+      dates: '2018 - 2020',
+      city: 'Mukilteo, WA',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
+    ),
+    job(
+      jobTitle: 'Software Engineer I',
+      companyName: 'Facebook',
+      dates: '2016 - 2018',
+      city: 'Menlo Park, CA',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
+    ),
     job(
       jobTitle: 'Junior Software Engineer',
-      companyName: 'ABC Company',
-      dates: '2021 - Present',
-      city: 'Portland, OR',
+      companyName: 'Intel',
+      dates: '2015 - 2016',
+      city: 'Beaverton, OR',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
+    ),
+    job(
+      jobTitle: 'Junior Software Engineer',
+      companyName: 'Uber',
+      dates: '2014 - 2015',
+      city: 'San Francisco, CA',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
+    ),
+    job(
+      jobTitle: 'Software Engineer Intern',
+      companyName: 'Microsoft',
+      dates: '2013 - 2014',
+      city: 'Seattle, WA',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
       'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
       'ad minim veniam.'
@@ -26,7 +78,7 @@ class Resume extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 10.0),
+      padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -45,7 +97,7 @@ Widget job({String jobTitle, String companyName, String dates, String city, Stri
       child: Column(children: [
         Row(
           children: [
-            Text(companyName, style: TextStyle(fontWeight: FontWeight.bold)),
+            Text(jobTitle, style: TextStyle(fontWeight: FontWeight.bold)),
           ],
         ),
         Row(
