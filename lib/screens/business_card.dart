@@ -25,7 +25,7 @@ class BusinessCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       child: FittedBox(
         alignment: Alignment.topCenter,
         child: Column(
@@ -59,7 +59,7 @@ double paddingBottom(BuildContext context) {
 //////////////////////////////////////////////////////////////////////
 List<Widget> businessCardProfile({String imagePath, String name, String title, int phone, String github, String email}) {
   return [
-    SizedBox(height: 30),
+    SizedBox(height: 10),
     SizedBox(height: 100, width: 100, child: profilePic(imageURL: imagePath)),
     SizedBox(height: 50, child: profileInfo(info: name, isName: true)),
     SizedBox(height: 30, child: profileInfo(info: title, isName: false)),
