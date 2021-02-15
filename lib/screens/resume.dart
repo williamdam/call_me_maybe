@@ -16,9 +16,9 @@ class Resume extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-      child: SafeArea(
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
         child: SingleChildScrollView(
           child: Column(
             children: workHistory(),

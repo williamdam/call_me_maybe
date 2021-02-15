@@ -24,19 +24,21 @@ class BusinessCard extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: FittedBox(
-        alignment: Alignment.topCenter,
-        child: Column(
-          children: businessCardProfile(
-            imagePath: imagePath, 
-            name: name, 
-            title: title, 
-            phone: phone, 
-            github: github, 
-            email: email
-          )
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: FittedBox(
+          alignment: Alignment.topCenter,
+          child: Column(
+            children: businessCardProfile(
+              imagePath: imagePath, 
+              name: name, 
+              title: title, 
+              phone: phone, 
+              github: github, 
+              email: email
+            )
+          ),
         ),
       ),
     );
