@@ -5,6 +5,7 @@
 //////////////////////////////////////////////////////////////////////
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../models/fortune_teller.dart';
 
 //////////////////////////////////////////////////////////////////////
@@ -29,7 +30,7 @@ class _PredictorState extends State<Predictor> {
     return Padding(
       padding: const EdgeInsets.all(30.0),
       child: FittedBox(
-            child: GestureDetector(
+        child: GestureDetector(
           onTap: () { setState( () { fortune = FortuneTeller().getAnswer();});},
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -49,11 +50,10 @@ class _PredictorState extends State<Predictor> {
 //////////////////////////////////////////////////////////////////////
 List<Widget> predictions(BuildContext context, String fortune) {
   return [
-    Text('Call Me...Maybe?', style: Theme.of(context).textTheme.headline4),
-    SizedBox(height: 50),
-    Text('Ask a question...tap for the answer.', style: TextStyle(fontSize: 20.0)),
-    SizedBox(height: 50),
+    Text('Call Me...Maybe?', style: GoogleFonts.mysteryQuest(textStyle: TextStyle(fontSize: 40.0))),
+    SizedBox(height: 30),
+    Text('Ask a question...tap for the answer.', style: Theme.of(context).textTheme.headline5),
+    SizedBox(height: 30),
     Text(fortune, style: TextStyle(color: Colors.blue, fontSize: 24, fontWeight: FontWeight.bold)),
-    SizedBox(height: 50)
   ]; 
 } 

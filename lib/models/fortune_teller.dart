@@ -31,6 +31,6 @@ class FortuneTeller {
   //////////////////////////////////////////////////////////////////////
   // Description: Returns string (fortune) from List<String> answers.
   //////////////////////////////////////////////////////////////////////
-  String getAnswer() => answers[random.nextInt(20)];
+  String getAnswer() => answers[random.nextInt(8)];
 
 }
