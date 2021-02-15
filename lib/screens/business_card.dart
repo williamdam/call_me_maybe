@@ -9,42 +9,63 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 //////////////////////////////////////////////////////////////////////
 // Description: BusinessCard class returns column of user profile info.
 //////////////////////////////////////////////////////////////////////
 class BusinessCard extends StatelessWidget {
+
+  final imagePath = 'assets/images/william-dam.jpg';
+  final name = 'William Dam';
+  final title = 'Software Developer';
+  final phone = 5555555555;
+  final github = 'github.com/williamdam';
+  final email = 'damw@oregonstate.edu';
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: businessCardProfile()
-          ),
+      padding: const EdgeInsets.all(8.0),
+      child: FittedBox(
+        alignment: Alignment.topCenter,
+        child: Column(
+          children: businessCardProfile(
+            imagePath: imagePath, 
+            name: name, 
+            title: title, 
+            phone: phone, 
+            github: github, 
+            email: email
+          )
         ),
       ),
     );
+  }
+
+}
+
+double paddingBottom(BuildContext context) {
+  if(MediaQuery.of(context).orientation == Orientation.landscape) {
+    return MediaQuery.of(context).size.height * 0.1;
+  } else {
+    return MediaQuery.of(context).size.height * 0.5;
   }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Description: Business card info
-// Args: None
+// Args: Image path, name, title, phone, github url, email
 // Returns: List of Row widgets to display
 //////////////////////////////////////////////////////////////////////
-List<Widget> businessCardProfile() {
+List<Widget> businessCardProfile({String imagePath, String name, String title, int phone, String github, String email}) {
   return [
-    SizedBox(height: 30.0),
-    profilePic(imageURL: 'assets/images/william-dam.jpg'),
-    SizedBox(height: 18.0),
-    profileInfo(info: 'William Dam', isName: true),
-    SizedBox(height: 18.0),
-    profileInfo(info: 'Software Developer', isName: false),
-    SizedBox(height: 18.0),
-    phoneNumber(number: 5555555555),
-    SizedBox(height: 18.0),
-    webInfo(github: 'github.com/williamdam', email: 'damw@oregonstate.edu')
+    SizedBox(height: 30),
+    SizedBox(height: 100, width: 100, child: profilePic(imageURL: imagePath)),
+    SizedBox(height: 50, child: profileInfo(info: name, isName: true)),
+    SizedBox(height: 30, child: profileInfo(info: title, isName: false)),
+    SizedBox(height: 30, child: phoneNumber(number: phone)),
+    SizedBox(height: 30, child: webInfo(github: github, email: email)),
+
   ];
 }
 
@@ -58,7 +79,7 @@ Widget profilePic({String imageURL}) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       SizedBox(
-        child: Image(image: AssetImage('assets/images/william-dam.jpg')),
+        child: Image(image: AssetImage(imageURL)),
         width: 100,
         height: 100
       )
@@ -132,3 +153,4 @@ Widget webInfo({String github, String email}) {
     ],
   );
 }
+
