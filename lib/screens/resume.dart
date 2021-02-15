@@ -6,6 +6,7 @@
 //////////////////////////////////////////////////////////////////////
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 //////////////////////////////////////////////////////////////////////
@@ -46,7 +47,7 @@ Widget aboutMe({String name, String email, String github}) {
         children: [
           Row(
             children: [
-              Text(name, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 30.0, color: Colors.teal)),
+              Text(name, style: GoogleFonts.merriweather(textStyle: TextStyle(fontWeight: FontWeight.normal, fontSize: 30.0, color: Colors.teal))),
             ],
           ),
           Row(

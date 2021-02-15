@@ -6,6 +6,7 @@
 //////////////////////////////////////////////////////////////////////
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 //////////////////////////////////////////////////////////////////////
@@ -77,11 +78,11 @@ Widget profileInfo({String info, bool isName}) {
     children: [
       Text(
         info, 
-        style: TextStyle(
+        style: GoogleFonts.bebasNeue(textStyle: TextStyle(
           fontWeight: isName ? FontWeight.w500 : FontWeight.normal, 
           fontSize: isName ? 30.0 : 18.0,
-          color: Colors.teal
-        )
+          color: Colors.red.shade600
+        ))
       )
     ]
   );
