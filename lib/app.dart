@@ -5,9 +5,9 @@
 //////////////////////////////////////////////////////////////////////
 
 import 'package:flutter/material.dart';
-import 'business_card.dart';
-import 'resume.dart';
-import 'predictor.dart';
+import 'screens/business_card.dart';
+import 'screens/resume.dart';
+import 'screens/predictor.dart';
 
 //////////////////////////////////////////////////////////////////////
 // Description: App class returns MaterialApp of entire application
