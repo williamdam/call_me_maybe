@@ -1,12 +1,85 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Resume extends StatelessWidget {
-  final jobs = [
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: workHistory(),
+          ),
+        ),
+      ),
+    );
+  }
+
+}
+
+Widget aboutMe({String name, String email, String github}) {
+
+  final emailURL = 'mailto:' + email;
+  final githubURL = 'https://' + github;
+
+  return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(name, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 30.0, color: Colors.teal)),
+            ],
+          ),
+          Row(
+            children: [
+              GestureDetector(onTap: () => launch(emailURL), child: Text(email)),
+            ],
+          ),
+          Row(
+            children: [
+              GestureDetector(onTap: () => launch(githubURL), child: Text(github)),
+            ],
+          ),
+      ]),
+    );
+}
+
+Widget job({String jobTitle, String companyName, String dates, String city, String description}) {
+  return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: Column(children: [
+        Row(
+          children: [
+            Text(jobTitle, style: TextStyle(fontWeight: FontWeight.bold)),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(alignment: Alignment.centerLeft, child: Text(companyName)),
+            Container(alignment: Alignment.center, child: Text(dates)),
+            Container(alignment: Alignment.centerRight, child: Text(city))
+          ]
+        ),
+        Wrap(
+          children: [
+            Text(description),
+          ],
+        )
+      ]),
+    );
+}
+
+List<Widget> workHistory() {
+  return [
     SizedBox(height: 20.0),
     aboutMe(
       name: 'William Dam',
       email: 'damw@oregonstate.edu',
-      githubURL: 'https://github.com/williamdam'
+      github: 'github.com/williamdam'
     ),
     job(
       jobTitle: 'Software Engineer II',
@@ -70,73 +143,25 @@ class Resume extends StatelessWidget {
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
       'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
       'ad minim veniam.'
+    ),
+    job(
+      jobTitle: 'Software Development Intern',
+      companyName: 'Amazon',
+      dates: '2012 - 2013',
+      city: 'Seattle, WA',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
+    ),
+    job(
+      jobTitle: 'Webmaster',
+      companyName: 'ABC Company',
+      dates: '2010 - 2012',
+      city: 'Irvine, CA',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,' 
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim' 
+      'ad minim veniam.'
     )
     
-    
   ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-      child: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: jobs,
-          ),
-        ),
-      ),
-    );
-  }
-
-}
-
-Widget job({String jobTitle, String companyName, String dates, String city, String description}) {
-  return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: Column(children: [
-        Row(
-          children: [
-            Text(jobTitle, style: TextStyle(fontWeight: FontWeight.bold)),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(alignment: Alignment.centerLeft, child: Text(companyName)),
-            Container(alignment: Alignment.center, child: Text(dates)),
-            Container(alignment: Alignment.centerRight, child: Text(city))
-          ]
-        ),
-        Wrap(
-          children: [
-            Text(description),
-          ],
-        )
-      ]),
-    );
-}
-
-Widget aboutMe({String name, String email, String githubURL}) {
-  return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text(name, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 24.0)),
-            ],
-          ),
-          Row(
-            children: [
-              Text(email),
-            ],
-          ),
-          Row(
-            children: [
-              Text(githubURL),
-            ],
-          ),
-      ]),
-    );
 }

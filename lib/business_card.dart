@@ -50,8 +50,15 @@ Widget profileInfo({String info, bool isName}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Text(info, style: TextStyle(fontWeight: isName ? FontWeight.w500 : FontWeight.normal, fontSize: isName ? 20.0 : 18.0))
-    ],
+      Text(
+        info, 
+        style: TextStyle(
+          fontWeight: isName ? FontWeight.w500 : FontWeight.normal, 
+          fontSize: isName ? 30.0 : 18.0,
+          color: Colors.teal
+        )
+      )
+    ]
   );
 }
 
@@ -66,7 +73,9 @@ Widget phoneNumber({int number}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      GestureDetector(onTap: () => launch(smsLaunchURL), child: Text(formattedNumber))
+      GestureDetector(
+        onTap: () => launch(smsLaunchURL), 
+        child: Text(formattedNumber, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.0)))
     ],
   );
 }
