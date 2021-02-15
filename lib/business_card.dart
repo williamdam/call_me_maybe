@@ -1,6 +1,16 @@
+//////////////////////////////////////////////////////////////////////
+// Author: William Dam
+// Date: 02-14-2021
+// Description: BusinessCard class is the view for the Business Card
+// Page, which displays the user's information.
+//////////////////////////////////////////////////////////////////////
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+//////////////////////////////////////////////////////////////////////
+// Description: BusinessCard class returns column of user profile info.
+//////////////////////////////////////////////////////////////////////
 class BusinessCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,6 +27,11 @@ class BusinessCard extends StatelessWidget {
   }
 }
 
+//////////////////////////////////////////////////////////////////////
+// Description: Business card info
+// Args: None
+// Returns: List of Row widgets to display
+//////////////////////////////////////////////////////////////////////
 List<Widget> businessCardProfile() {
   return [
     SizedBox(height: 30.0),
@@ -32,6 +47,11 @@ List<Widget> businessCardProfile() {
   ];
 }
 
+//////////////////////////////////////////////////////////////////////
+// Description: User's profile picture
+// Args: Image location url
+// Returns: Row widget of user's picture
+//////////////////////////////////////////////////////////////////////
 Widget profilePic({String imageURL}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -45,6 +65,11 @@ Widget profilePic({String imageURL}) {
   );
 }
 
+//////////////////////////////////////////////////////////////////////
+// Description: Profile text in business card
+// Args: Text to display, Bool if text is user's name
+// Returns: Row widget of formatted text
+//////////////////////////////////////////////////////////////////////
 Widget profileInfo({String info, bool isName}) {
   
   return Row(
@@ -62,6 +87,12 @@ Widget profileInfo({String info, bool isName}) {
   );
 }
 
+//////////////////////////////////////////////////////////////////////
+// Description: User's phone number
+// Args: Integer with no spaces
+// Returns: Row widget of formatted number and GestureDetector to 
+// launch sms.
+//////////////////////////////////////////////////////////////////////
 Widget phoneNumber({int number}) {
 
   String smsLaunchURL = 'sms:' + number.toString();
@@ -80,6 +111,12 @@ Widget phoneNumber({int number}) {
   );
 }
 
+//////////////////////////////////////////////////////////////////////
+// Description: Github and Email Address
+// Args: Github url and email address
+// Returns: Row widget of links with GestureDetector to launch url
+// on tap. 
+//////////////////////////////////////////////////////////////////////
 Widget webInfo({String github, String email}) {
 
   String githubURL = 'https://' + github;

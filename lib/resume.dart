@@ -29,6 +29,12 @@ class Resume extends StatelessWidget {
 
 }
 
+//////////////////////////////////////////////////////////////////////
+// Description: User's contact info block.  Uses GestureDetector 
+// and url_launcher to make links clickable.
+// Args: Full Name, Email, Github URL
+// Returns: Column of Row widgets with padding
+//////////////////////////////////////////////////////////////////////
 Widget aboutMe({String name, String email, String github}) {
 
   final emailURL = 'mailto:' + email;
@@ -57,6 +63,11 @@ Widget aboutMe({String name, String email, String github}) {
     );
 }
 
+//////////////////////////////////////////////////////////////////////
+// Description: Job experience block
+// Args: Job Title, Company Name, Employment Dates, Location, Description
+// Returns: Column of Row widgets with Padding
+//////////////////////////////////////////////////////////////////////
 Widget job({String jobTitle, String companyName, String dates, String city, String description}) {
   return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
@@ -83,6 +94,11 @@ Widget job({String jobTitle, String companyName, String dates, String city, Stri
     );
 }
 
+//////////////////////////////////////////////////////////////////////
+// Description: List of user info and entire work history
+// Args: None
+// Returns: List of Row widgets
+//////////////////////////////////////////////////////////////////////
 List<Widget> workHistory() {
   return [
     SizedBox(height: 20.0),
