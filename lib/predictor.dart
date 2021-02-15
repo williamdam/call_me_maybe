@@ -38,8 +38,9 @@ class _PredictorState extends State<Predictor> {
 }
 
 //////////////////////////////////////////////////////////////////////
-// Description: List of Text widgets to display fortune teller
-// interface.
+// Description: Fortune teller prompt and answer
+// Args: BuildContext, Fortune to be displayed
+// Reeturns: List of Text Widgets
 //////////////////////////////////////////////////////////////////////
 List<Widget> predictions(BuildContext context, String fortune) {
   return [
