@@ -56,6 +56,6 @@ List<Widget> predictions(BuildContext context, String fortune) {
     SizedBox(height: 30),
     Text('Ask a question...tap for the answer.', style: Theme.of(context).textTheme.headline5),
     SizedBox(height: 30),
-    Text(fortune, style: TextStyle(color: Colors.blue, fontSize: 24, fontWeight: FontWeight.bold)),
+    Text(fortune, style: TextStyle(fontFamily: 'Starkiller', color: Colors.blue, fontSize: 24, fontWeight: FontWeight.bold)),
   ]; 
 } 
