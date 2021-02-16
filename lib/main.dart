@@ -6,7 +6,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'app.dart';
+import 'controller/app.dart';
 
 //////////////////////////////////////////////////////////////////////
 // Description: Main function for the program.  Enable landscape and

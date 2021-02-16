@@ -6,7 +6,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../models/fortune_teller.dart';
+import '../model/fortune_teller.dart';
 
 //////////////////////////////////////////////////////////////////////
 // Description: Predictor class returns widget state

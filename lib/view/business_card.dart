@@ -18,7 +18,7 @@ class BusinessCard extends StatelessWidget {
   final imagePath = 'assets/images/william-dam.jpg';
   final name = 'William Dam';
   final title = 'Software Developer';
-  final phone = 5555555555;
+  final phone = 2345545422;
   final github = 'github.com/williamdam';
   final email = 'damw@oregonstate.edu';
   
